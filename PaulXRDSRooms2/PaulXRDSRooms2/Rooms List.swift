@@ -9,21 +9,26 @@ import SwiftUI
 
 struct Rooms_List: View {
     @State var rooms:[roomStruct]?
-    @State var search = "search"
+    @State var search = 1
     var body: some View {
         if let rooms = rooms{
             NavigationView()
             {
-                TextField("Search", text: $search)
                 NavigationView(){
-                    List(rooms) { roomStruct in
-                        //if(room.fullName )
-                        NavigationLink {
-                            RoomsCloseup(room: roomStruct)
+                    VStack{
+                        Picker(selection: $search, label: Text("Rooms")) {
+                            Text("1").tag(1)
+                            Text("2").tag(2)
                         }
-                    label: {
-                        Room_Row(room: roomStruct)
-                    }
+                        List(rooms) { roomStruct in
+                            //if(room.fullName )
+                            NavigationLink {
+                                RoomsCloseup(room: roomStruct)
+                            }
+                        label: {
+                            Room_Row(room: roomStruct)
+                        }
+                        }
                     }
                     //.navigationTitle("Rooms of Crossroads")
                     .multilineTextAlignment(.center)
