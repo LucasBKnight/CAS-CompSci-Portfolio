@@ -9,21 +9,42 @@ import SwiftUI
 
 struct Rooms_List: View {
     @State var rooms:[roomStruct]?
-    @State var search = "search"
+    @State var allRooms:[roomStruct]?
+    @State var search = " All Buildings"
+    @State var buildings = [" All Buildings", "Science Building"]
     var body: some View {
         if let rooms = rooms{
             NavigationView()
             {
-                TextField("Search", text: $search)
                 NavigationView(){
-                    List(rooms) { roomStruct in
-                        //if(room.fullName )
-                        NavigationLink {
-                            RoomsCloseup(room: roomStruct)
+                    VStack{
+                        Picker("Buildings", selection: $search) {
+                        ForEach(buildings, id: \.self) {building in
+                            Text (building)
+                            
                         }
-                    label: {
-                        Room_Row(room: roomStruct)
-                    }
+                        }.onChange (of: search) { _
+                            in if search == " All Buildings" {
+                                self.rooms = allRooms
+                            }
+                            else{
+                                self.rooms = allRooms!.filter{
+                                    room in
+                                    return room.building == search
+                                }
+                                
+                            }
+                            
+                        }
+                        List(rooms) { roomStruct in
+                            //if(room.fullName )
+                            NavigationLink {
+                                RoomsCloseup(room: roomStruct)
+                            }
+                        label: {
+                            Room_Row(room: roomStruct)
+                        }
+                        }
                     }
                     //.navigationTitle("Rooms of Crossroads")
                     .multilineTextAlignment(.center)
@@ -37,7 +58,8 @@ struct Rooms_List: View {
                     })
                 }
             }
-        } else
+        }
+    else
         {
             Text("LOADING")
                 .onAppear(){

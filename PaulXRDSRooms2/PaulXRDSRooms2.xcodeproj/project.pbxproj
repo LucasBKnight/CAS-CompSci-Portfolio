@@ -18,7 +18,6 @@
 		1D95AD4B2964BA4400D2193C /* Main Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95AD4A2964BA4400D2193C /* Main Screen.swift */; };
 		1D95AD4D2964DB1A00D2193C /* Rooms List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95AD4C2964DB1A00D2193C /* Rooms List.swift */; };
 		1D95AD4F2964E17100D2193C /* Room Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95AD4E2964E17100D2193C /* Room Row.swift */; };
-		1D95AD532964E58600D2193C /* roomData.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D95AD522964E58600D2193C /* roomData.json */; };
 		1DAC2CFF2992BDEC0066B9D9 /* LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAC2CFE2992BDEC0066B9D9 /* LoadData.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +34,6 @@
 		1D95AD4A2964BA4400D2193C /* Main Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Main Screen.swift"; sourceTree = "<group>"; };
 		1D95AD4C2964DB1A00D2193C /* Rooms List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rooms List.swift"; sourceTree = "<group>"; };
 		1D95AD4E2964E17100D2193C /* Room Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Room Row.swift"; sourceTree = "<group>"; };
-		1D95AD522964E58600D2193C /* roomData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = roomData.json; path = ../../XrdsRooms/XrdsRooms/Data/roomData.json; sourceTree = "<group>"; };
 		1DAC2CFE2992BDEC0066B9D9 /* LoadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,7 +76,6 @@
 				1D06734629677C1B003D8144 /* moreInfo.swift */,
 				1D95AD4E2964E17100D2193C /* Room Row.swift */,
 				1D95AD402964B9EE00D2193C /* Assets.xcassets */,
-				1D95AD522964E58600D2193C /* roomData.json */,
 				1D067340296777E6003D8144 /* RoomStruct.swift */,
 				1DAC2CFE2992BDEC0066B9D9 /* LoadData.swift */,
 				1D067342296777F4003D8144 /* Model.swift */,
@@ -144,7 +141,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D95AD532964E58600D2193C /* roomData.json in Resources */,
 				1D95AD412964B9EE00D2193C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
