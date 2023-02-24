@@ -9,16 +9,32 @@ import SwiftUI
 
 struct Rooms_List: View {
     @State var rooms:[roomStruct]?
-    @State var search = 1
+    @State var allRooms:[roomStruct]?
+    @State var search = " All Buildings"
+    @State var buildings = [" All Buildings", "Science Building"]
     var body: some View {
         if let rooms = rooms{
             NavigationView()
             {
                 NavigationView(){
                     VStack{
-                        Picker(selection: $search, label: Text("Rooms")) {
-                            Text("1").tag(1)
-                            Text("2").tag(2)
+                        Picker("Buildings", selection: $search) {
+                        ForEach(buildings, id: \.self) {building in
+                            Text (building)
+                            
+                        }
+                        }.onChange (of: search) { _
+                            in if search == " All Buildings" {
+                                self.rooms = allRooms
+                            }
+                            else{
+                                self.rooms = allRooms!.filter{
+                                    room in
+                                    return room.building == search
+                                }
+                                
+                            }
+                            
                         }
                         List(rooms) { roomStruct in
                             //if(room.fullName )
@@ -42,7 +58,8 @@ struct Rooms_List: View {
                     })
                 }
             }
-        } else
+        }
+    else
         {
             Text("LOADING")
                 .onAppear(){
